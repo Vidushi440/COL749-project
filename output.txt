@@ -1,0 +1,54 @@
+Stable Matching with Men’s Coalition (House-Swapping/Strict Core)
+============================================================
+
+Original Men Preferences:
+  m1: ['w1', 'w2', 'w5', 'w4', 'w3']
+  m2: ['w2', 'w5', 'w4', 'w1', 'w3']
+  m3: ['w5', 'w2', 'w1', 'w3', 'w4']
+  m4: ['w4', 'w1', 'w2', 'w3', 'w5']
+  m5: ['w5', 'w4', 'w2', 'w3', 'w1']
+
+Original Women Preferences:
+  w1: ['m3', 'm2', 'm4', 'm1', 'm5']
+  w2: ['m4', 'm5', 'm1', 'm2', 'm3']
+  w3: ['m2', 'm3', 'm4', 'm5', 'm1']
+  w4: ['m1', 'm2', 'm3', 'm5', 'm4']
+  w5: ['m1', 'm2', 'm5', 'm3', 'm4']
+
+Step 1: Men-Optimal Matching (M0) via Gale-Shapley:
+  m1 → w5
+  m2 → w4
+  m3 → w1
+  m4 → w2
+  m5 → w3
+
+Step 2: Coalition Matching (Strict Core via TTC):
+  m4 → w4
+  m2 → w2
+  m1 → w1
+  m3 → w5
+  m5 → w3
+
+Step 3: Final Matching (Enforced by Coalition):
+  m1 → w1
+  m2 → w2
+  m3 → w5
+  m4 → w4
+  m5 → w3
+
+Happiness Scores (higher is better, max = #women, top choice = max):
+  (M0)    (Final)
+m1:   3       5
+m2:   3       5
+m3:   3       5
+m4:   3       5
+m5:   2       2
+
+Total happiness (higher is better):
+  M0:    14
+  Final: 22
+
+Notes:
+- Happiness is defined as len(prefs) - index of assigned partner (higher is better, top choice = max).
+- The coalition (strict core) guarantees that no man is worse off than in M0, and some may be strictly better off.
+- If the coalition and M0 matchings are identical, no strict core improvement was possible.
