@@ -1,4 +1,4 @@
-# 🤝 Stable Matching with Men’s Coalition (House-Swapping / Strict Core)
+# 🤝 Optimal Matching with Men’s Coalition (House-Swapping / Strict Core)
 
 This project implements a coalition-based stable matching algorithm where men can collude to improve their match outcomes in a traditional Gale-Shapley stable marriage setting. The strategy models the coalition as a **house-swapping problem** and uses the **Top Trading Cycle (TTC)** algorithm to find the **strict core** of the market.
 
